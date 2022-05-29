@@ -1,0 +1,30 @@
+def solution(n, lost, reserve):
+    real_lost = [l for l in lost if l not in reserve]
+    real_reserve = [r for r in reserve if r not in lost]
+    
+    real_reserve.sort()
+    
+    for now in real_reserve:
+        front = now - 1
+        back = now + 1
+        if front in real_lost:
+            real_lost.remove(front)
+        elif back in real_lost:
+            real_lost.remove(back)
+    return n - len(real_lost)
+    
+==========================================================================
+# list.remove() : O(n), set.remove() : O(1)
+
+def solution(n, lost, reserve):
+    real_lost = set(lost) - set(reserve)
+    real_reserve = set(reserve) - set(lost)
+    
+    for now in real_reserve:
+        front = now - 1
+        back = now + 1
+        if front in real_lost:
+            real_lost.remove(front)
+        elif back in real_lost:
+            real_lost.remove(back)
+    return n - len(real_lost)
