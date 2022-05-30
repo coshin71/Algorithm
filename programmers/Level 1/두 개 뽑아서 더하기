@@ -1,0 +1,18 @@
+from itertools import combinations
+
+def solution(numbers):
+    answer = []
+    comb = combinations(numbers, 2)
+    for c in comb:
+        if c[0] + c[1] not in answer:
+            answer.append(c[0] + c[1])
+    return sorted(answer)
+    
+==============================================================
+
+def solution(numbers):
+    answer = []
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            answer.append(numbers[i] + numbers[j])
+    return sorted(list(set(answer)))
