@@ -1,2 +1,15 @@
 def solution(s):
     return int(s)
+
+========================================================
+
+def solution(s):
+    result = 0
+    for idx, num in enumerate(s[::-1]):
+        if num == '-':
+            result *= -1
+        elif num == "+":
+            continue
+        else:
+            result += int(num) * (10 ** idx)
+    return result
