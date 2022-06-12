@@ -1,0 +1,10 @@
+def solution(s, n):
+    answer = ""
+    for alpha in s:
+        if alpha.isupper():
+            answer += chr(ord('A') + (ord(alpha) % 65 + n) % 26)
+        elif alpha.islower():
+            answer += chr(ord('a') + (ord(alpha) % 97 + n) % 26)
+        else:
+            answer += " "
+    return answer
