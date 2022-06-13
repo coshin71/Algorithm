@@ -1,0 +1,11 @@
+def solution(s):
+    answer = [s[0].upper()]
+    for i in range(1, len(s)):
+        if s[i] == " ":
+            answer.append(" ")
+            continue
+        if answer[i - 1].isupper():
+            answer.append(s[i].lower())
+        else:
+            answer.append(s[i].upper())
+    return "".join(answer)
