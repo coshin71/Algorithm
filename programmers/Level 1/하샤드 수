@@ -1,0 +1,5 @@
+def solution(x):
+    num = x
+    x = list(str(x))
+    x = list(map(int, x))
+    return True if num % sum(x) == 0 else False
